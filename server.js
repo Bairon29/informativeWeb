@@ -13,7 +13,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 
 var configDB = require('./config/database.js');
-
+mongoose.Promise = global.Promise;
 mongoose.connect(configDB.url);
 
 require('./config/passport.js')(passport);
@@ -29,11 +29,10 @@ app.use("/", express.static(__dirname + '/public'));
 app.use(methodOver('_method'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(function (req, res, next) {
-    res.locals.login = req.isAuthenticated();
-    next();
-});
-
+// app.use(function (req, res, next) {
+//     res.locals.login = req.isAuthenticated();
+//     next();
+// });
 
 app.use(session({
   secret: 'theTruthIsOutThere51',

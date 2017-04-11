@@ -22,11 +22,19 @@
         </div>
         <div class="col-lg-12 col-md-12">
           <% if(!login) {%>
+          <%= login%>
           <a href="/login" title="">login</a>
            <a href="/signup" title="">signup</a>
            <%}%>
         </div>
 
+        <div class="col-lg-12 col-md-12">
+          <form action="/assesments" method="POST">
+          <label>name</label>
+          <input class="form-control" type="text" name="name">
+          <button class="btn btn-lg">Submit</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>

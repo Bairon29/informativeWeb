@@ -61,8 +61,12 @@ module.exports = function(passport) {
                 // set the user's local credentials
                 newUser.local.email     = email;
                 newUser.local.password  = newUser.generateHash(password);
-                newUser.local.firstname = req.param('first_name');
-                newUser.local.lastname  = req.param('last_name');
+                newUser.local.firstname = req.params['first_name'];
+                newUser.local.lastname  = req.params['last_name'];
+                newUser.local.this_database_admin = false;
+                if(newUser.local.email === "baironvasquez29@gmail.com"){
+                      newUser.local.this_database_admin = true;
+                      }
                 // save the user
                 newUser.save(function(err) {
                     if (err)

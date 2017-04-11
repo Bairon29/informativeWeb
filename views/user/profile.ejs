@@ -7,10 +7,13 @@
   <link rel="stylesheet" href="">
 </head>
 <body>
-<h1>profile</h1>
+ <%for(var i = 0; i < user.local.assesments.length; i++){%>
+    <%= user.local.assesments[i].name %>
+  <%}%>
+<h1>regular profile</h1>
    <strong>id</strong>: <%= user._id %><br>
    <strong>email</strong>: <%= user.local.email %><br>
    <strong>password</strong>: <%= user.local.password %>
-
+   <strong>Admin</strong>: <%= user.local.this_database_admin %>
 </body>
 </html>
